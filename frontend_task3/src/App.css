@@ -118,13 +118,18 @@ h1 {
               -6px -6px 12px #ffffff;
 }
 
+.nav-group {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
 .logout-btn {
   padding: 15px 25px;
-  margin-bottom: 25px;
   border: none;
   border-radius: 20px;
   background: #e8e8e8;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 700;
   cursor: pointer;
   box-shadow: 6px 6px 12px #c5c5c5,
@@ -137,6 +142,26 @@ h1 {
   box-shadow: inset 4px 4px 12px #c5c5c5,
               inset -4px -4px 12px #ffffff;
 }
+
+.blog-btn {
+  padding: 15px 25px;
+  border: none;
+  border-radius: 20px;
+  background: #e8e8e8;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 6px 6px 12px #c5c5c5,
+              -6px -6px 12px #ffffff;
+  transition: 0.3s;
+}
+
+.blog-btn:hover {
+  color: #4ed4e5;
+  box-shadow: inset 4px 4px 12px #c5c5c5,
+              inset -4px -4px 12px #ffffff;
+}
+
 .input-group {
   display: flex;
   flex-direction: column;
@@ -158,6 +183,26 @@ input {
 }
 
 input:focus {
+  box-shadow: inset 2px 2px 8px #c5c5c5,
+              inset -2px -2px 8px #ffffff;
+}
+
+.blog-textarea {
+  padding: 16px;
+  border: none;
+  outline: none;
+  border-radius: 18px;
+  background: #e8e8e8;
+  font-size: 16px;
+  color: #333;
+  font-family: "Poppins", sans-serif;
+  box-shadow: inset 5px 5px 10px #c5c5c5,
+              inset -5px -5px 10px #ffffff;
+  transition: 0.3s;
+  resize: vertical;
+}
+
+.blog-textarea:focus {
   box-shadow: inset 2px 2px 8px #c5c5c5,
               inset -2px -2px 8px #ffffff;
 }
