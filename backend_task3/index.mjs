@@ -10,28 +10,15 @@ dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-
 app.use(
   cors({
-    origin: (origin, callback) => {
-      const allowedOrigins = [
-        "http://localhost:5173",
-        "https://mern-intern-task-3-4.vercel.app",
-      ];
-      if (
-        !origin ||
-        allowedOrigins.includes(origin) ||
-        origin.endsWith("--mern-intern-task-3-4.vercel.app/")
-      ) {
-        callback(null, true);
-      } else {
-        callback(new Error("Not allowed by CORS"));
-      }
-    },
+    origin: [
+      "http://localhost:5173",
+      "https://mern-intern-task-3-4.vercel.app",
+    ],
     credentials: true,
   })
 );
-
 app.use(express.json());
 app.use("/api/tasks", router);
 app.use("/api/auth", authRoutes);
