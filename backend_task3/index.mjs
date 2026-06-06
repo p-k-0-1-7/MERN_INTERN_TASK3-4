@@ -16,12 +16,12 @@ app.use(
     origin: (origin, callback) => {
       const allowedOrigins = [
         "http://localhost:5173",
-        "https://merninterninternspark.netlify.app",
+        "https://mern-intern-task-3-4.vercel.app",
       ];
       if (
         !origin ||
         allowedOrigins.includes(origin) ||
-        origin.endsWith("--merninterninternspark.netlify.app")
+        origin.endsWith("--mern-intern-task-3-4.vercel.app/")
       ) {
         callback(null, true);
       } else {
