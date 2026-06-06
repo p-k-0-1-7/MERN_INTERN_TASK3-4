@@ -1,4 +1,5 @@
 import { Routes, Route, Navigate } from "react-router-dom";
+import { useState, useEffect } from "react";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Dashboard from "./pages/Dashboard";
@@ -10,11 +11,18 @@ const ProtectedRoute = ({ children }) => {
 };
 
 function App() {
+  const [token, setToken] = useState(localStorage.getItem("token"));
+
+  useEffect(() => {
+    const handleStorage = () => setToken(localStorage.getItem("token"));
+    window.addEventListener("storage", handleStorage);
+    return () => window.removeEventListener("storage", handleStorage);
+  }, []);
+
   return (
     <Routes>
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
-
       <Route
         path="/dashboard"
         element={
@@ -23,7 +31,6 @@ function App() {
           </ProtectedRoute>
         }
       />
-
       <Route
         path="/blogs"
         element={
@@ -36,7 +43,7 @@ function App() {
       <Route
         path="/"
         element={
-          localStorage.getItem("token") ? (
+          token ? (
             <Navigate to="/dashboard" replace />
           ) : (
             <Navigate to="/login" replace />
